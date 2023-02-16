@@ -1,9 +1,0 @@
-// Symbol table
-// Scope level 0:
-//	Symbol Name       Page Address
-//	----------------  ------------
-//	PROMPT1           3003
-//	$               3000
-//	$               3001
-//	$               3002
-
