@@ -1,7 +1,7 @@
 reset
 clear
-as user/hello.asm
+as user/hello/hello.asm
 as lc3os/lc3os.asm
 ld lc3os/lc3os.obj
-ld user/hello.obj
+ld user/hello/hello.obj
 continue
