@@ -1,7 +1,0 @@
-reset
-clear
-as user/printdiff/printdiff.asm
-as lc3os/lc3os.asm
-ld lc3os/lc3os.obj
-ld user/printdiff/printdiff.obj
-continue

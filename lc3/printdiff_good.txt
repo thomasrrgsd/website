@@ -1,0 +1,7 @@
+reset
+clear
+as user/printdiff/printdiff_good.asm
+as lc3os/lc3os.asm
+ld lc3os/lc3os.obj
+ld user/printdiff/printdiff_good.obj
+continue
