@@ -1,0 +1,8 @@
+reset
+clear
+as user/pacman/print.asm
+as user/pacman/redghost.asm
+ld lc3os/p3os.obj
+ld user/pacman/print.obj
+ld user/pacman/redghost.obj
+continue

@@ -1,6 +1,7 @@
 ;
 ; This is the buggy version of the print difference
 ; program, printdiff_good.asm.
+
 ;
 ; This program gets two digits (0-3) and prints the
 ; difference of the two digits.
