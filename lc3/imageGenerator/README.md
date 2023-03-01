@@ -3,7 +3,7 @@
 ## Instructions:
 
 - Download files and put them in same root folder.
-- Run image.html
+- Run lc3image.html
 - Follow the instructions on webpage.
 
 TO DO:
