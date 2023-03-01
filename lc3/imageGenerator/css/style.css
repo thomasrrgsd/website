@@ -1,0 +1,12 @@
+
+#txtboxCode {
+	width: 510px;
+	height: 260px;
+	font: 14px Courier New;
+	line-height: normal;
+	overflow: scroll;
+	padding: 5px;
+	background-color: #FFFFF0;
+	color: #000000;
+	border: 2px solid #000000;
+}

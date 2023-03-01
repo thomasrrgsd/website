@@ -1,8 +1,12 @@
 reset
 clear
 as user/pacman/print.asm
-as user/pacman/redghost.asm
+as user/pacman/invader.asm
+as user/pacman/invader2.asm
+as user/pacman/invader3.asm
 ld lc3os/p3os.obj
 ld user/pacman/print.obj
-ld user/pacman/redghost.obj
+ld user/pacman/invader.obj
+ld user/pacman/invader2.obj
+ld user/pacman/invader3.obj
 continue
