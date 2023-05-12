@@ -1,0 +1,114 @@
+; LC-3 Image Generator
+
+; Change to desired start location.
+.ORIG x5180
+
+; Width = 13, Height = 8
+
+; Using blanksprite prefix to ensure unique labels.
+blankspriteROW0COL0 .FILL x8000
+blankspriteROW0COL1 .FILL x8000
+blankspriteROW0COL2 .FILL x8000
+blankspriteROW0COL3 .FILL x8000
+blankspriteROW0COL4 .FILL x8000
+blankspriteROW0COL5 .FILL x8000
+blankspriteROW0COL6 .FILL x8000
+blankspriteROW0COL7 .FILL x8000
+blankspriteROW0COL8 .FILL x8000
+blankspriteROW0COL9 .FILL x8000
+blankspriteROW0COL10 .FILL x8000
+blankspriteROW0COL11 .FILL x8000
+blankspriteROW0COL12 .FILL x8000
+blankspriteROW1COL0 .FILL x8000
+blankspriteROW1COL1 .FILL x8000
+blankspriteROW1COL2 .FILL x8000
+blankspriteROW1COL3 .FILL x8000
+blankspriteROW1COL4 .FILL x8000
+blankspriteROW1COL5 .FILL x8000
+blankspriteROW1COL6 .FILL x8000
+blankspriteROW1COL7 .FILL x8000
+blankspriteROW1COL8 .FILL x8000
+blankspriteROW1COL9 .FILL x8000
+blankspriteROW1COL10 .FILL x8000
+blankspriteROW1COL11 .FILL x8000
+blankspriteROW1COL12 .FILL x8000
+blankspriteROW2COL0 .FILL x8000
+blankspriteROW2COL1 .FILL x8000
+blankspriteROW2COL2 .FILL x8000
+blankspriteROW2COL3 .FILL x8000
+blankspriteROW2COL4 .FILL x8000
+blankspriteROW2COL5 .FILL x8000
+blankspriteROW2COL6 .FILL x8000
+blankspriteROW2COL7 .FILL x8000
+blankspriteROW2COL8 .FILL x8000
+blankspriteROW2COL9 .FILL x8000
+blankspriteROW2COL10 .FILL x8000
+blankspriteROW2COL11 .FILL x8000
+blankspriteROW2COL12 .FILL x8000
+blankspriteROW3COL0 .FILL x8000
+blankspriteROW3COL1 .FILL x8000
+blankspriteROW3COL2 .FILL x8000
+blankspriteROW3COL3 .FILL x8000
+blankspriteROW3COL4 .FILL x8000
+blankspriteROW3COL5 .FILL x8000
+blankspriteROW3COL6 .FILL x8000
+blankspriteROW3COL7 .FILL x8000
+blankspriteROW3COL8 .FILL x8000
+blankspriteROW3COL9 .FILL x8000
+blankspriteROW3COL10 .FILL x8000
+blankspriteROW3COL11 .FILL x8000
+blankspriteROW3COL12 .FILL x8000
+blankspriteROW4COL0 .FILL x8000
+blankspriteROW4COL1 .FILL x8000
+blankspriteROW4COL2 .FILL x8000
+blankspriteROW4COL3 .FILL x8000
+blankspriteROW4COL4 .FILL x8000
+blankspriteROW4COL5 .FILL x8000
+blankspriteROW4COL6 .FILL x8000
+blankspriteROW4COL7 .FILL x8000
+blankspriteROW4COL8 .FILL x8000
+blankspriteROW4COL9 .FILL x8000
+blankspriteROW4COL10 .FILL x8000
+blankspriteROW4COL11 .FILL x8000
+blankspriteROW4COL12 .FILL x8000
+blankspriteROW5COL0 .FILL x8000
+blankspriteROW5COL1 .FILL x8000
+blankspriteROW5COL2 .FILL x8000
+blankspriteROW5COL3 .FILL x8000
+blankspriteROW5COL4 .FILL x8000
+blankspriteROW5COL5 .FILL x8000
+blankspriteROW5COL6 .FILL x8000
+blankspriteROW5COL7 .FILL x8000
+blankspriteROW5COL8 .FILL x8000
+blankspriteROW5COL9 .FILL x8000
+blankspriteROW5COL10 .FILL x8000
+blankspriteROW5COL11 .FILL x8000
+blankspriteROW5COL12 .FILL x8000
+blankspriteROW6COL0 .FILL x8000
+blankspriteROW6COL1 .FILL x8000
+blankspriteROW6COL2 .FILL x8000
+blankspriteROW6COL3 .FILL x8000
+blankspriteROW6COL4 .FILL x8000
+blankspriteROW6COL5 .FILL x8000
+blankspriteROW6COL6 .FILL x8000
+blankspriteROW6COL7 .FILL x8000
+blankspriteROW6COL8 .FILL x8000
+blankspriteROW6COL9 .FILL x8000
+blankspriteROW6COL10 .FILL x8000
+blankspriteROW6COL11 .FILL x8000
+blankspriteROW6COL12 .FILL x8000
+blankspriteROW7COL0 .FILL x8000
+blankspriteROW7COL1 .FILL x8000
+blankspriteROW7COL2 .FILL x8000
+blankspriteROW7COL3 .FILL x8000
+blankspriteROW7COL4 .FILL x8000
+blankspriteROW7COL5 .FILL x8000
+blankspriteROW7COL6 .FILL x8000
+blankspriteROW7COL7 .FILL x8000
+blankspriteROW7COL8 .FILL x8000
+blankspriteROW7COL9 .FILL x8000
+blankspriteROW7COL10 .FILL x8000
+blankspriteROW7COL11 .FILL x8000
+blankspriteROW7COL12 .FILL x8000
+
+.END
