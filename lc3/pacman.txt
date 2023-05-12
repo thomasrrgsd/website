@@ -7,6 +7,4 @@ as user/pacman/invader3.asm
 ld lc3os/p3os.obj
 ld user/pacman/print.obj
 ld user/pacman/invader.obj
-ld user/pacman/invader2.obj
-ld user/pacman/invader3.obj
 continue

@@ -1,0 +1,98 @@
+; LC-3 Image Generator
+
+; Change to desired start location.
+.ORIG x5080
+
+; Width = 11, Height = 8
+
+; Using alien12 prefix to ensure unique labels.
+alien12ROW0COL0 .FILL x0
+alien12ROW0COL1 .FILL x0
+alien12ROW0COL2 .FILL xfbff
+alien12ROW0COL3 .FILL x0
+alien12ROW0COL4 .FILL x0
+alien12ROW0COL5 .FILL x0
+alien12ROW0COL6 .FILL x0
+alien12ROW0COL7 .FILL x0
+alien12ROW0COL8 .FILL xfbff
+alien12ROW0COL9 .FILL x0
+alien12ROW0COL10 .FILL x0
+alien12ROW1COL0 .FILL xfbff
+alien12ROW1COL1 .FILL x0
+alien12ROW1COL2 .FILL x0
+alien12ROW1COL3 .FILL xfbff
+alien12ROW1COL4 .FILL x0
+alien12ROW1COL5 .FILL x0
+alien12ROW1COL6 .FILL x0
+alien12ROW1COL7 .FILL xfbff
+alien12ROW1COL8 .FILL x0
+alien12ROW1COL9 .FILL x0
+alien12ROW1COL10 .FILL xfbff
+alien12ROW2COL0 .FILL xfbff
+alien12ROW2COL1 .FILL x0
+alien12ROW2COL2 .FILL xfbff
+alien12ROW2COL3 .FILL xfbff
+alien12ROW2COL4 .FILL xfbff
+alien12ROW2COL5 .FILL xfbff
+alien12ROW2COL6 .FILL xfbff
+alien12ROW2COL7 .FILL xfbff
+alien12ROW2COL8 .FILL xfbff
+alien12ROW2COL9 .FILL x0
+alien12ROW2COL10 .FILL xfbff
+alien12ROW3COL0 .FILL xfbff
+alien12ROW3COL1 .FILL xfbff
+alien12ROW3COL2 .FILL xfbff
+alien12ROW3COL3 .FILL x0
+alien12ROW3COL4 .FILL xfbff
+alien12ROW3COL5 .FILL xfbff
+alien12ROW3COL6 .FILL xfbff
+alien12ROW3COL7 .FILL x0
+alien12ROW3COL8 .FILL xfbff
+alien12ROW3COL9 .FILL xfbff
+alien12ROW3COL10 .FILL xfbff
+alien12ROW4COL0 .FILL xfbff
+alien12ROW4COL1 .FILL xfbff
+alien12ROW4COL2 .FILL xfbff
+alien12ROW4COL3 .FILL xfbff
+alien12ROW4COL4 .FILL xfbff
+alien12ROW4COL5 .FILL xfbff
+alien12ROW4COL6 .FILL xfbff
+alien12ROW4COL7 .FILL xfbff
+alien12ROW4COL8 .FILL xfbff
+alien12ROW4COL9 .FILL xfbff
+alien12ROW4COL10 .FILL xfbff
+alien12ROW5COL0 .FILL x0
+alien12ROW5COL1 .FILL xfbff
+alien12ROW5COL2 .FILL xfbff
+alien12ROW5COL3 .FILL xfbff
+alien12ROW5COL4 .FILL xfbff
+alien12ROW5COL5 .FILL xfbff
+alien12ROW5COL6 .FILL xfbff
+alien12ROW5COL7 .FILL xfbff
+alien12ROW5COL8 .FILL xfbff
+alien12ROW5COL9 .FILL xfbff
+alien12ROW5COL10 .FILL x0
+alien12ROW6COL0 .FILL x0
+alien12ROW6COL1 .FILL x0
+alien12ROW6COL2 .FILL xfbff
+alien12ROW6COL3 .FILL x0
+alien12ROW6COL4 .FILL x0
+alien12ROW6COL5 .FILL x0
+alien12ROW6COL6 .FILL x0
+alien12ROW6COL7 .FILL x0
+alien12ROW6COL8 .FILL xfbff
+alien12ROW6COL9 .FILL x0
+alien12ROW6COL10 .FILL x0
+alien12ROW7COL0 .FILL x0
+alien12ROW7COL1 .FILL xfbff
+alien12ROW7COL2 .FILL x0
+alien12ROW7COL3 .FILL x0
+alien12ROW7COL4 .FILL x0
+alien12ROW7COL5 .FILL x0
+alien12ROW7COL6 .FILL x0
+alien12ROW7COL7 .FILL x0
+alien12ROW7COL8 .FILL x0
+alien12ROW7COL9 .FILL xfbff
+alien12ROW7COL10 .FILL x0
+
+.END

@@ -7,7 +7,7 @@
 
 	
 	LD R0, picLoc
-	LD R1, picAdr1
+	LD R1, picAdr3
 	LD R4, height
 
 Loop1
@@ -25,48 +25,6 @@ Loop1
 	ADD R0, R0, R2
 	ADD R4, R4, #-1
 	BRp Loop1
-
-	LD R0, picLoc
-	LD R1, picAdr2
-	LD R4, height
-	
-Loop3
-	LD R2, wid
-	Loop4
-		LDR R3, R1, #0
-		BRzp Skip3
-		STR R3, R0, #0
-	Skip3
-		ADD R1, R1, #1
-		ADD R0, R0, #1
-		ADD R2, R2, #-1
-		BRp Loop4
-	LD R2, nxtLine
-	ADD R0, R0, R2
-	ADD R4, R4, #-1
-	BRp Loop3
-
-	LD R0, picLoc
-	LD R1, picAdr3
-	LD R4, height
-
-	HALT
-	
-Loop5
-	LD R2, wid
-	Loop6
-		LDR R3, R1, #0
-		BRzp Skip5
-		STR R3, R0, #0
-	Skip5
-		ADD R1, R1, #1
-		ADD R0, R0, #1
-		ADD R2, R2, #-1
-		BRp Loop6
-	LD R2, nxtLine
-	ADD R0, R0, R2
-	ADD R4, R4, #-1
-	BRp Loop5
 	
 	HALT ; The program is done, all objectives met.
 	
