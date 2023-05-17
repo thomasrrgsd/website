@@ -15,9 +15,6 @@
 	LD	R0, SEC
 	STI R0, TMI
 	
-	LD	R1, picLoc
-	AND R2, R2, #0
-	JSR printAlien
 timeLoop
 	; Check for user input.
 	LDI R0, KBSR
@@ -56,16 +53,32 @@ alienControl
 	ST	R1, alienControlR1
 	ST	R2, alienControlR2
 	ST	R7, alienControlR7
-
+		
+		; Code for Alien collision or explosion.
+		LD	R1, debugCounter
+		ADD R1, R1, #-1
+		BRp skipHALT
+		HALT
+		skipHALT
+		ST	R1, debugCounter
+		
 		; Code to print Alien.
+		LD	R1, picLocPrev
+		AND R2, R2, #0
+		ADD R2, R2, #3
+		JSR printAlien	; Erases old alien image.
 		LD	R1, picLoc
+		ST	R1, picLocPrev
 		LD	R2, alienState
 		JSR printAlien
 		ADD R2, R2, #1
-		ADD R1, R2, #-4
+		ADD R1, R2, #-2
 		BRn	skipR2Clear
 		AND R2, R2, #0
 	skipR2Clear
+		LD	R1, picLoc
+		ADD R1, R1, #5
+		ST	R1, picLoc
 		ST	R2, alienState
 	
 	LD	R7, alienControlR7
@@ -74,10 +87,12 @@ alienControl
 	RET
 
 alienState			.FILL	x0000
-picLoc				.FILL	xC555
+picLoc				.FILL	xC204
+picLocPrev			.FILL	xC204
 alienControlR1		.FILL	x0000
 alienControlR2		.FILL	x0000
 alienControlR7		.FILL	x0000
+debugCounter		.FILL	#24
 
 ;-------------------------------------------------------------------
 ; gameInput
@@ -93,8 +108,7 @@ alienControlR7		.FILL	x0000
 gameInput
 	ST	R1, gameInputR1
 	ST	R7, gameInputR7
-
-;---------------------------------------------------------------------------------------DEBUG	
+	
 	OUT
 	LD	R1, ascii_q
 	ADD R1, R1, R0
@@ -180,10 +194,10 @@ adrAlien1 		.FILL	x5080
 adrAlien2 		.FILL	x5100
 adrAlien3		.FILL	x5180
 widAlienCur		.FILL	x0000	; Setup custom width.
-widAlien0		.FILL	#11
-widAlien1		.FILL	#11
-widAlien2		.FILL	#13
-widAlien3		.FILL	#13
+widAlien0		.FILL	#11		; Alien with hands down
+widAlien1		.FILL	#11		; Alien with hands up
+widAlien2		.FILL	#13		; Exploded alien
+widAlien3		.FILL	#11		; Blank sprite 8x11
 heiAlien0		.FILL	#8
 heiAlien1		.FILL	#8
 heiAlien2		.FILL	#8

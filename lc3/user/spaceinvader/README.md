@@ -2,7 +2,7 @@
 
 This user program is an adaption of the classic arcade game, Space Invaders. New features are currently being added. The program will not be a 1:1 port.
 
-## To Do:
+## To Do (Not in order):
 - Add basic text sprites.
 - Add function to print text to graphics display.
 - Add a basic menu with options for instructions, game play, or quiting.
