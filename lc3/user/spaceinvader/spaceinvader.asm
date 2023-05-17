@@ -1,7 +1,5 @@
 
-; LC-3 Image Generator Test Code
-
-; Semi-colons are used to create comments.
+; Spaceinvaders.asm
 
 .ORIG x3000 ; Program begins at x3000.
 
@@ -21,24 +19,97 @@
 	AND R2, R2, #0
 	JSR printAlien
 timeLoop
+	; Check for user input.
+	LDI R0, KBSR
+	BRzp skipHandleInput
+	LDI R0, KBDR
+	JSR gameInput
+	skipHandleInput
+
 	LDI R0, TMR			; Load timer register to see if ready.
 	BRzp timeLoop		; If negative, TMR[15] = 1, it's ready.	
 
-	ADD R2, R2, #1
-	ADD R0, R2, #-4
-	BRn	skipR2Clear
-	AND R2, R2, #0
-skipR2Clear
-	LD	R1, picLoc
-	JSR printAlien
+	JSR alienControl
+
 	BR	timeLoop
 
 	HALT ; The program is done, all objectives met.
 
-picLoc			.FILL	xC555
 TMR				.FILL 	xFE08		; Timer register. TMR[15] = 1 if ready.
 TMI				.FILL 	xFE0A		; Timer Interval Register.
 SEC				.FILL 	#1000		; Timer interval in milliseconds.
+KBSR			.FILL	xFE00
+KBDR			.FILL	xFE02
+
+;-------------------------------------------------------------------
+; alienControl
+; 
+; Description: 
+; 
+; Inputs: 
+;	- N/A
+; 
+; Returns: 
+;	- N/A
+;-------------------------------------------------------------------
+alienControl
+	ST	R1, alienControlR1
+	ST	R2, alienControlR2
+	ST	R7, alienControlR7
+
+		; Code to print Alien.
+		LD	R1, picLoc
+		LD	R2, alienState
+		JSR printAlien
+		ADD R2, R2, #1
+		ADD R1, R2, #-4
+		BRn	skipR2Clear
+		AND R2, R2, #0
+	skipR2Clear
+		ST	R2, alienState
+	
+	LD	R7, alienControlR7
+	LD	R2, alienControlR2
+	LD	R1, alienControlR1
+	RET
+
+alienState			.FILL	x0000
+picLoc				.FILL	xC555
+alienControlR1		.FILL	x0000
+alienControlR2		.FILL	x0000
+alienControlR7		.FILL	x0000
+
+;-------------------------------------------------------------------
+; gameInput
+; 
+; Description: 
+; 
+; Inputs: 
+;	- R0, ascii input.
+; 
+; Returns: 
+;	- N/A
+;-------------------------------------------------------------------
+gameInput
+	ST	R1, gameInputR1
+	ST	R7, gameInputR7
+
+;---------------------------------------------------------------------------------------DEBUG	
+	OUT
+	LD	R1, ascii_q
+	ADD R1, R1, R0
+	BRnp skipInputQ
+	HALT
+	skipInputQ
+	
+	LD	R7, gameInputR7
+	LD	R1, gameInputR1
+	RET
+
+ascii_q			.FILL	#-113
+gameInputR1		.FILL	x0000
+gameInputR7		.FILL	x0000
+
 
 ;-------------------------------------------------------------------
 ; printAlien

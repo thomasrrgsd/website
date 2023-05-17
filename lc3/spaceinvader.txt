@@ -5,10 +5,12 @@ as user/spaceinvader/alien1_1.asm
 as user/spaceinvader/alien1_2.asm
 as user/spaceinvader/alienboom.asm
 as user/spaceinvader/blanksprite.asm
+as user/spaceinvader/shipsprite.asm
 ld lc3os/p3os.obj
 ld user/spaceinvader/spaceinvader.obj
 ld user/spaceinvader/alien1_1.obj
 ld user/spaceinvader/alien1_2.obj
 ld user/spaceinvader/alienboom.obj
-as user/spaceinvader/blanksprite.obj
+ld user/spaceinvader/blanksprite.obj
+ld user/spaceinvader/shipsprite.obj
 continue

@@ -1,0 +1,114 @@
+; LC-3 Image Generator
+
+; Change to desired start location.
+.ORIG x5200
+
+; Width = 13, Height = 8
+
+; Using shipsprite prefix to ensure unique labels.
+shipspriteROW0COL0 .FILL x0
+shipspriteROW0COL1 .FILL x0
+shipspriteROW0COL2 .FILL x0
+shipspriteROW0COL3 .FILL x0
+shipspriteROW0COL4 .FILL x0
+shipspriteROW0COL5 .FILL x0
+shipspriteROW0COL6 .FILL x83e7
+shipspriteROW0COL7 .FILL x0
+shipspriteROW0COL8 .FILL x0
+shipspriteROW0COL9 .FILL x0
+shipspriteROW0COL10 .FILL x0
+shipspriteROW0COL11 .FILL x0
+shipspriteROW0COL12 .FILL x0
+shipspriteROW1COL0 .FILL x0
+shipspriteROW1COL1 .FILL x0
+shipspriteROW1COL2 .FILL x0
+shipspriteROW1COL3 .FILL x0
+shipspriteROW1COL4 .FILL x0
+shipspriteROW1COL5 .FILL x83e7
+shipspriteROW1COL6 .FILL x83e7
+shipspriteROW1COL7 .FILL x83e7
+shipspriteROW1COL8 .FILL x0
+shipspriteROW1COL9 .FILL x0
+shipspriteROW1COL10 .FILL x0
+shipspriteROW1COL11 .FILL x0
+shipspriteROW1COL12 .FILL x0
+shipspriteROW2COL0 .FILL x0
+shipspriteROW2COL1 .FILL x0
+shipspriteROW2COL2 .FILL x0
+shipspriteROW2COL3 .FILL x0
+shipspriteROW2COL4 .FILL x0
+shipspriteROW2COL5 .FILL x83e7
+shipspriteROW2COL6 .FILL x83e7
+shipspriteROW2COL7 .FILL x83e7
+shipspriteROW2COL8 .FILL x0
+shipspriteROW2COL9 .FILL x0
+shipspriteROW2COL10 .FILL x0
+shipspriteROW2COL11 .FILL x0
+shipspriteROW2COL12 .FILL x0
+shipspriteROW3COL0 .FILL x0
+shipspriteROW3COL1 .FILL x83e7
+shipspriteROW3COL2 .FILL x83e7
+shipspriteROW3COL3 .FILL x83e7
+shipspriteROW3COL4 .FILL x83e7
+shipspriteROW3COL5 .FILL x83e7
+shipspriteROW3COL6 .FILL x83e7
+shipspriteROW3COL7 .FILL x83e7
+shipspriteROW3COL8 .FILL x83e7
+shipspriteROW3COL9 .FILL x83e7
+shipspriteROW3COL10 .FILL x83e7
+shipspriteROW3COL11 .FILL x83e7
+shipspriteROW3COL12 .FILL x0
+shipspriteROW4COL0 .FILL x83e7
+shipspriteROW4COL1 .FILL x83e7
+shipspriteROW4COL2 .FILL x83e7
+shipspriteROW4COL3 .FILL x83e7
+shipspriteROW4COL4 .FILL x83e7
+shipspriteROW4COL5 .FILL x83e7
+shipspriteROW4COL6 .FILL x83e7
+shipspriteROW4COL7 .FILL x83e7
+shipspriteROW4COL8 .FILL x83e7
+shipspriteROW4COL9 .FILL x83e7
+shipspriteROW4COL10 .FILL x83e7
+shipspriteROW4COL11 .FILL x83e7
+shipspriteROW4COL12 .FILL x83e7
+shipspriteROW5COL0 .FILL x83e7
+shipspriteROW5COL1 .FILL x83e7
+shipspriteROW5COL2 .FILL x83e7
+shipspriteROW5COL3 .FILL x83e7
+shipspriteROW5COL4 .FILL x83e7
+shipspriteROW5COL5 .FILL x83e7
+shipspriteROW5COL6 .FILL x83e7
+shipspriteROW5COL7 .FILL x83e7
+shipspriteROW5COL8 .FILL x83e7
+shipspriteROW5COL9 .FILL x83e7
+shipspriteROW5COL10 .FILL x83e7
+shipspriteROW5COL11 .FILL x83e7
+shipspriteROW5COL12 .FILL x83e7
+shipspriteROW6COL0 .FILL x83e7
+shipspriteROW6COL1 .FILL x83e7
+shipspriteROW6COL2 .FILL x83e7
+shipspriteROW6COL3 .FILL x83e7
+shipspriteROW6COL4 .FILL x83e7
+shipspriteROW6COL5 .FILL x83e7
+shipspriteROW6COL6 .FILL x83e7
+shipspriteROW6COL7 .FILL x83e7
+shipspriteROW6COL8 .FILL x83e7
+shipspriteROW6COL9 .FILL x83e7
+shipspriteROW6COL10 .FILL x83e7
+shipspriteROW6COL11 .FILL x83e7
+shipspriteROW6COL12 .FILL x83e7
+shipspriteROW7COL0 .FILL x83e7
+shipspriteROW7COL1 .FILL x83e7
+shipspriteROW7COL2 .FILL x83e7
+shipspriteROW7COL3 .FILL x83e7
+shipspriteROW7COL4 .FILL x83e7
+shipspriteROW7COL5 .FILL x83e7
+shipspriteROW7COL6 .FILL x83e7
+shipspriteROW7COL7 .FILL x83e7
+shipspriteROW7COL8 .FILL x83e7
+shipspriteROW7COL9 .FILL x83e7
+shipspriteROW7COL10 .FILL x83e7
+shipspriteROW7COL11 .FILL x83e7
+shipspriteROW7COL12 .FILL x83e7
+
+.END
