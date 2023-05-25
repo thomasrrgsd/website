@@ -15,6 +15,9 @@
 	LD	R0, SEC
 	STI R0, TMI
 	
+	AND	R1, R1, #0
+	JSR printShip
+	
 timeLoop
 	; Check for user input.
 	LDI R0, KBSR
@@ -34,7 +37,7 @@ timeLoop
 
 TMR				.FILL 	xFE08		; Timer register. TMR[15] = 1 if ready.
 TMI				.FILL 	xFE0A		; Timer Interval Register.
-SEC				.FILL 	#1000		; Timer interval in milliseconds.
+SEC				.FILL 	#500		; Timer interval in milliseconds.
 KBSR			.FILL	xFE00
 KBDR			.FILL	xFE02
 
@@ -58,7 +61,12 @@ alienControl
 		LD	R1, debugCounter
 		ADD R1, R1, #-1
 		BRp skipHALT
-		HALT
+		;HALT
+		LD	R2, leftRightOffset
+		NOT R2, R2
+		ADD R2, R2, #1	; Take advantage of 2sC symmetry.
+		ST	R2, leftRightOffset
+		LD	R1, debugCounterReset
 		skipHALT
 		ST	R1, debugCounter
 		
@@ -76,10 +84,12 @@ alienControl
 		BRn	skipR2Clear
 		AND R2, R2, #0
 	skipR2Clear
-		LD	R1, picLoc
-		ADD R1, R1, #5
-		ST	R1, picLoc
 		ST	R2, alienState
+		
+		LD	R1, picLoc
+		LD	R2, leftRightOffset
+		ADD R1, R1, R2	; Move back and forth using this instruction.
+		ST	R1, picLoc
 	
 	LD	R7, alienControlR7
 	LD	R2, alienControlR2
@@ -87,12 +97,14 @@ alienControl
 	RET
 
 alienState			.FILL	x0000
-picLoc				.FILL	xC204
+picLoc				.FILL	xC208
 picLocPrev			.FILL	xC204
 alienControlR1		.FILL	x0000
 alienControlR2		.FILL	x0000
 alienControlR7		.FILL	x0000
-debugCounter		.FILL	#24
+debugCounter		.FILL	#22
+debugCounterReset	.FILL	#22
+leftRightOffset		.FILL	#5
 
 ;-------------------------------------------------------------------
 ; gameInput
@@ -110,17 +122,36 @@ gameInput
 	ST	R7, gameInputR7
 	
 	OUT
+	
 	LD	R1, ascii_q
 	ADD R1, R1, R0
 	BRnp skipInputQ
 	HALT
 	skipInputQ
 	
+	LD	R1, ascii_a
+	ADD R1, R1, R0
+	BRnp skipInputA
+	AND R1, R1, #0
+	ADD R1, R1, #-3
+	JSR printShip
+	skipInputA
+	
+	LD	R1, ascii_d
+	ADD	R1, R1, R0
+	BRnp skipInputD
+	AND R1, R1, #0
+	ADD R1, R1, #3
+	JSR printShip
+	skipInputD
+	
 	LD	R7, gameInputR7
 	LD	R1, gameInputR1
 	RET
 
 ascii_q			.FILL	#-113
+ascii_a			.FILL	#-97
+ascii_d			.FILL	#-100
 gameInputR1		.FILL	x0000
 gameInputR7		.FILL	x0000
 
@@ -209,5 +240,93 @@ printAlienR2	.FILL	x0000
 printAlienR3	.FILL	x0000
 printAlienR4	.FILL	x0000
 printAlienR7	.FILL	x0000
+
+
+;-------------------------------------------------------------------
+; printShip
+; 
+; Description:
+; 
+; Inputs: 
+;	- R1, movement direction, 'a' or 'd'.
+; 
+; Returns: 
+;	- N/A
+;-------------------------------------------------------------------
+printShip
+	ST R0, printShipR0	; Temp register
+	ST R2, printShipR2
+	ST R3, printShipR3
+	ST R4, printShipR4
+	ST R7, printShipR7
+
+	
+	; Here will be the logic for the ships location on screen.
+	; We will pass in a boolean value to determine left or right.
+	LD	R0, shipStartLoc
+	
+	; Setup ship sprite height
+	AND R2, R2, #0
+	ADD R2, R2, #8
+	
+	AND R4, R4, #0	; Only need black for first image write.
+	
+	printShipLp1
+		AND R3, R3, #0
+		ADD	R3, R3, #13		; Ship sprite has width of 13.
+		printShipLp2
+			STR R4, R0, #0
+			ADD R0, R0, #1
+			ADD R3, R3, #-1
+			BRp printShipLp2
+		LD R3, shipRowOffset
+		ADD R0, R0, R3
+		ADD R2, R2, #-1
+		BRp printShipLp1
+
+
+	; Here will be the logic for the ships location on screen.
+	; We will pass in a boolean value to determine left or right.
+	LD	R0, shipStartLoc
+	ADD R1, R1, R0
+	ST	R1, shipStartLoc
+
+	; Get address to ship sprite
+	LD	R0, shipAddress
+	
+	; Setup ship sprite height
+	AND R2, R2, #0
+	ADD R2, R2, #8
+	
+	printShipLp3
+		AND R3, R3, #0
+		ADD	R3, R3, #13		; Ship sprite has width of 13.
+		printShipLp4
+			LDR R4, R0, #0
+			STR R4, R1, #0
+			ADD R0, R0, #1
+			ADD R1, R1, #1
+			ADD R3, R3, #-1
+			BRp printShipLp4
+		LD R3, shipRowOffset
+		ADD R1, R1, R3
+		ADD R2, R2, #-1
+		BRp printShipLp3
+	
+	LD R7, printShipR7
+	LD R4, printShipR4
+	LD R3, printShipR3
+	LD R2, printShipR2
+	LD R0, printShipR0
+	RET
+
+shipRowOffset	.FILL	#115
+shipAddress		.FILL	x5200
+shipStartLoc	.FILL	xF938
+printShipR0		.FILL	x0000
+printShipR2		.FILL	x0000
+printShipR3		.FILL	x0000
+printShipR4		.FILL	x0000
+printShipR7		.FILL	x0000
 
 .END   
