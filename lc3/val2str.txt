@@ -1,0 +1,8 @@
+reset
+clear
+as user/val2str/val2str.asm
+as lc3os/lc3os.asm
+ld lc3os/lc3os.obj
+ld user/val2str/val2str.obj
+b set debug
+continue

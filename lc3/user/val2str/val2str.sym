@@ -1,0 +1,32 @@
+// Symbol table
+// Scope level 0:
+//	Symbol Name       Page Address
+//	----------------  ------------
+//	CLEARMSB          3016
+//	RIGHTSHIFTL1      300A
+//	RIGHTSHIFT        3005
+//	DEBUG             3003
+//	TESTVAL           3004
+//	RIGHTSHIFTS1      300E
+//	RIGHTSHIFTR7      3015
+//	$               3000
+//	$               3001
+//	$               3002
+//	$               3003
+//	$               3005
+//	$               3006
+//	$               3007
+//	$               3008
+//	$               3009
+//	$               300A
+//	$               300B
+//	$               300C
+//	$               300D
+//	$               300E
+//	$               300F
+//	$               3010
+//	$               3011
+//	$               3012
+//	$               3013
+//	$               3014
+
